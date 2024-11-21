@@ -1,0 +1,9 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "Custom CMD": {
+            "path": ["C:\\Windows\\System32\\cmd.exe"],
+            "args": ["/K", "C:\\Users\\kauan\\IC-main\\init_terminal.bat"]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Custom CMD"
+}
