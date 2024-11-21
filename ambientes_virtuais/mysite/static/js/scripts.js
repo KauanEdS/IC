@@ -211,5 +211,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+function handleCredentialResponse(response) {
+    const data = {
+        id_token: response.credential
+    };
 
+    console.log('Token:', data.id_token);
 
+    fetch('/google/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify(data)
+    }).then(response => response.json()).then(data => {
+        if (data.success) {
+            window.location.href = '/index/';
+        } else {
+            alert('Falha na autenticação');
+        }
+    }).catch(error => {
+        console.error('Erro:', error);
+    });
+}
+
+window.onload = function () {
+    google.accounts.id.initialize({
+        client_id: '949861330261-ct86u8r3f8kukdscj59d70loraim19u7.apps.googleusercontent.com',
+        callback: handleCredentialResponse
+    });
+    google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large" }
+    );
+}     
