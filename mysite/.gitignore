@@ -1,8 +1,27 @@
-
-# Byte- compiled / optimized / DLL files    
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
+# C extensions
+*.so
+
+# Banco de dados local 
 *.sqlite3
 
+# Ambientes Virtuais 
+venv/
+env/
 .env
+.venv/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Configurações de editores 
+.vscode/
+.idea/
+
+# Django media 
+media/
